@@ -1,0 +1,30 @@
+version: "3"
+services:
+    app:
+        image: laravel-app # Use an appropriate Laravel 9 image or build your own.
+        container_name: laravel-app # User define
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "8090:80"
+        depends_on:
+            - db
+
+    db:
+        image: mysql:8.0
+        container_name: mysql-db
+        environment:
+            MYSQL_ROOT_PASSWORD: root_password
+            MYSQL_DATABASE: laravel_db
+            MYSQL_USER: laravel_user
+            MYSQL_PASSWORD: laravel_password
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            MYSQL_ROOT_PASSWORD: root_password
