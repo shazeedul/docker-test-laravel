@@ -30,3 +30,5 @@ EXPOSE 80
 
 # Start Apache
 CMD ["apache2-foreground"]
+
+# docker build -t laravel-app .

@@ -28,3 +28,8 @@ services:
             PMA_HOST: db
             PMA_PORT: 3306
             MYSQL_ROOT_PASSWORD: root_password
+# docker-compose up -d
+# docker exec -it laravel-app bash
+# composer install
+# php artisan key:generate && php artisan migrate
+
